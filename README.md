@@ -1,6 +1,6 @@
 ## Link 
  
- - URL to the deployed application  https://liza-p.github.io/-password-generator/
+ - URL to the deployed application  https://liza-p.github.io/password-generator/
 
 ## About
 
