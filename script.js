@@ -8,13 +8,39 @@ function generatePassword() {
       alert("Password length should be beetween 8 and 128 characters!");
       return "";
    }
+   var userLowCaseChoice = confirm("Include lower case characters?");
+   var userUppCaseChoice = confirm("Include Upper case characters?");
+   var userNumCharChoice = confirm("Include numbers?");
+   var userSpeciCharChoice = confirm("Include special characters?");
+   if (userLowCaseChoice === false && userUppCaseChoice === false && userNumCharChoice === false && userSpeciCharChoice === false) {
+     alert("Select at least one criteria for the password!");
+     return "";
+   }
+
    //Created variable password for generated pass
    var password = "";
-   var characters = "abcdefghjklmnopqrstuvwxyz";
+   var lowChars = "abcdefghjklmnopqrstuvwxyz";
+   var upperChars = lowChars.toUpperCase();
+   var numChar = "1234567890";
+   var speciChar = "!@#$%^&*()_+{}|<>?"
+   var selectedChars = "";
+   
+   if(userLowCaseChoice === true) {
+    selectedChars += lowChars;
+   }
+   if(userUppCaseChoice === true) {
+     selectedChars += upperChars;
+   }
+   if(userNumCharChoice === true) {
+     selectedChars += numChar;
+   }
+   if(userSpeciCharChoice === true) {
+     selectedChars += speciChar;
+   }
 
     for (var i = 0; i < passLength; i++) {
-      var index = Math.floor(Math.random()*characters.length);
-       password += characters[index];
+      var index = Math.floor(Math.random()*selectedChars.length);
+       password += selectedChars[index];
     }
     return password;
 }
